@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>freehand4real - Floating Window</title>
+  <link rel="stylesheet" href="widget.css">
+</head>
+<body>
+  <div id="widget-panel">
+    <!-- Header with Clean Minimalist SVG Icons -->
+    <div id="widget-header">
+      <div id="drag-handle" title="Hold & drag window">
+        <svg class="ui-icon" viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
+          <circle cx="4" cy="4" r="1.2"/><circle cx="4" cy="8" r="1.2"/><circle cx="4" cy="12" r="1.2"/>
+          <circle cx="12" cy="4" r="1.2"/><circle cx="12" cy="8" r="1.2"/><circle cx="12" cy="12" r="1.2"/>
+        </svg>
+        <span class="brand">freehand4real</span>
+      </div>
+      <div class="header-btns">
+        <!-- Air Cursor Toggle Button -->
+        <button id="btn-cursor" class="btn-ctrl active" title="Toggle Air Cursor">
+          <svg class="ui-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3l7 18 3-7 7-3L3 3z"/>
+          </svg>
+        </button>
+        <!-- Camera Toggle Button -->
+        <button id="btn-cam" class="btn-ctrl" title="Toggle Webcam AI">
+          <svg class="ui-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </button>
+        <!-- Sound Toggle Button -->
+        <button id="btn-sound" class="btn-ctrl active" title="Toggle Sound Feedback">
+          <svg class="ui-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+        </button>
+        <!-- Minimize Button -->
+        <button id="btn-min" class="btn-ctrl btn-icon" title="Minimize Window">−</button>
+        <!-- Close Window & Bubble Button -->
+        <button id="btn-close" class="btn-ctrl btn-icon" title="Turn Off Floating Window & Bubble">✕</button>
+      </div>
+    </div>
+
+    <!-- Live Webcam Screen -->
+    <div id="cam-box">
+      <div class="video-wrap">
+        <video id="webcam" playsinline autoplay muted></video>
+        <canvas id="overlay-canvas"></canvas>
+        <div id="cam-idle">
+          <span id="idle-msg">Click Cam icon to start</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Gesture Indicator Badge -->
+    <div id="active-indicator-container">
+      <div class="indicator-label">Active Gesture</div>
+      <div id="active-gesture-badge" class="badge-idle">
+        <span id="badge-text">Standby</span>
+      </div>
+    </div>
+
+    <!-- Symmetrical Compact Keypad -->
+    <div id="keypad">
+      <!-- Options A, B, C, D, E -->
+      <div class="grid-5">
+        <button class="key key-opt" data-action="PRESS_A" title="1 Finger: A">A</button>
+        <button class="key key-opt" data-action="PRESS_B" title="2 Fingers: B">B</button>
+        <button class="key key-opt" data-action="PRESS_C" title="3 Fingers: C">C</button>
+        <button class="key key-opt" data-action="PRESS_D" title="4 Fingers: D">D</button>
+        <button class="key key-opt" data-action="PRESS_E" title="5 Fingers: E">E</button>
+      </div>
+
+      <!-- Nav & Scroll -->
+      <div class="grid-4">
+        <button class="key key-nav" data-action="ARROW_LEFT" title="Point Left: Prev">◀ Left</button>
+        <button class="key key-nav" data-action="SCROLL_UP" title="Hand Up: Scroll Up">▲ Up</button>
+        <button class="key key-nav" data-action="SCROLL_DOWN" title="Hand Down: Scroll Down">▼ Down</button>
+        <button class="key key-nav" data-action="ARROW_RIGHT" title="Point Right: Next">Right ▶</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="widget-footer">
+      <span>1-5: A-E • Pinch: Click • Drag header to move</span>
+    </div>
+  </div>
+
+  <!-- Minimized Floating Bubble -->
+  <div id="min-bubble" style="display: none;">
+    <button id="btn-max" title="Expand freehand4real">F</button>
+    <button id="btn-bubble-close" class="bubble-x" title="Turn Off Bubble">✕</button>
+  </div>
+
+  <!-- MediaPipe Tasks Vision Library -->
+  <script src="lib/vision_bundle.js"></script>
+  <script src="widget.js"></script>
+</body>
+</html>

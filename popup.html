@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>freehand4real</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header class="hdr">
+      <h1>freehand4real</h1>
+      <p class="sub">Clean Gesture Controller</p>
+    </header>
+
+    <!-- Master Extension Switch -->
+    <label class="row master-row">
+      <span class="master-title">Extension Active</span>
+      <input type="checkbox" id="sw-master" checked>
+    </label>
+
+    <!-- Action Buttons -->
+    <div style="display: flex; gap: 6px;">
+      <button id="btn-test" class="btn-main" style="flex: 1;">Playground</button>
+      <button id="btn-sidepanel" class="btn-main" style="flex: 1; background: #ffffff; color: #111827;">Side Panel</button>
+    </div>
+
+    <!-- Toggles (Symmetrical, Anti-overflow) -->
+    <div class="list">
+      <label class="row">
+        <span>Floating Window & Bubble</span>
+        <input type="checkbox" id="sw-floating" checked>
+      </label>
+      <label class="row">
+        <span>Air Cursor</span>
+        <input type="checkbox" id="sw-cursor" checked>
+      </label>
+      <label class="row">
+        <span>Hand Gestures</span>
+        <input type="checkbox" id="sw-hand" checked>
+      </label>
+      <label class="row">
+        <span>Mouse Gestures</span>
+        <input type="checkbox" id="sw-mouse" checked>
+      </label>
+      <label class="row">
+        <span>Form Auto-Select</span>
+        <input type="checkbox" id="sw-select" checked>
+      </label>
+      <label class="row">
+        <span>Sound Feedback</span>
+        <input type="checkbox" id="sw-sound" checked>
+      </label>
+    </div>
+
+    <!-- Cheatsheet Table -->
+    <div class="tbl">
+      <div class="tr"><span>👊 Fist Up/Down</span><b>Scroll Up / Down</b></div>
+      <div class="tr"><span>☝ 1 Finger</span><b>Key A</b></div>
+      <div class="tr"><span>✌ 2 Fingers</span><b>Key B</b></div>
+      <div class="tr"><span>🤟 3 Fingers</span><b>Key C</b></div>
+      <div class="tr"><span>🖖 4 Fingers</span><b>Key D</b></div>
+      <div class="tr"><span>🖐 5 Fingers</span><b>Key E</b></div>
+      <div class="tr"><span>👈 Point Left</span><b>Left Arrow</b></div>
+      <div class="tr"><span>👉 Point Right</span><b>Right Arrow</b></div>
+      <div class="tr"><span>🤏 Pinch</span><b>Click</b></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

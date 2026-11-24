@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>freehand4real - Playground</title>
+  <link rel="stylesheet" href="test.css">
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header class="header">
+      <h1>freehand4real</h1>
+      <p class="desc">Playground for A, B, C, D, E, Arrow, Scroll & Air Cursor</p>
+    </header>
+
+    <!-- SECTION 0: Webcam & MediaPipe Diagnostic Station -->
+    <section class="box">
+      <div class="box-head">
+        <h2>0. Camera & MediaPipe AI Diagnostic</h2>
+        <span id="cam-status" class="tag">Camera: Offline</span>
+      </div>
+      <p class="info">Click below to allow camera permission and run MediaPipe Tasks Vision on-device:</p>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <button id="btn-start-test-cam" class="btn" style="padding: 8px 16px;">▶ Start Camera & Load MediaPipe</button>
+        <span id="diag-status" style="font-size: 13px; color: #4b5563;">Status: Ready to initialize</span>
+      </div>
+      <div id="test-video-container" style="position: relative; width: 100%; max-width: 480px; height: 260px; background: #f3f4f6; border: 1px solid #111827; border-radius: 6px; overflow: hidden; margin-top: 8px; display: none;">
+        <video id="test-webcam" playsinline autoplay muted style="width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1);"></video>
+        <canvas id="test-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform: scaleX(-1); pointer-events: none;"></canvas>
+      </div>
+    </section>
+
+    <!-- SECTION 1: Key Status -->
+    <section class="box">
+      <div class="box-head">
+        <h2>1. Live Key Detector</h2>
+        <span class="tag">Listening</span>
+      </div>
+      <div class="grid-5">
+        <div class="key-box" id="k-A"><span class="title">A</span><span class="sub">1 Finger</span></div>
+        <div class="key-box" id="k-B"><span class="title">B</span><span class="sub">2 Fingers</span></div>
+        <div class="key-box" id="k-C"><span class="title">C</span><span class="sub">3 Fingers</span></div>
+        <div class="key-box" id="k-D"><span class="title">D</span><span class="sub">4 Fingers</span></div>
+        <div class="key-box" id="k-E"><span class="title">E</span><span class="sub">5 Fingers</span></div>
+      </div>
+      <div class="grid-4">
+        <div class="key-box" id="k-Left"><span class="title">◀ Left</span><span class="sub">Point Left</span></div>
+        <div class="key-box" id="k-Up"><span class="title">▲ Up</span><span class="sub">Hand Up</span></div>
+        <div class="key-box" id="k-Down"><span class="title">▼ Down</span><span class="sub">Hand Down</span></div>
+        <div class="key-box" id="k-Right"><span class="title">Right ▶</span><span class="sub">Point Right</span></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Air Cursor Click Targets -->
+    <section class="box">
+      <div class="box-head">
+        <h2>2. Air Cursor Click Targets</h2>
+        <span id="click-counter" class="tag">Clicks: 0</span>
+      </div>
+      <p class="info">Move your finger to guide the air cursor. Pinch (thumb + index) to click any target button below:</p>
+      <div class="grid-5">
+        <button class="target-btn">Target 1</button>
+        <button class="target-btn">Target 2</button>
+        <button class="target-btn">Target 3</button>
+        <button class="target-btn">Target 4</button>
+        <button class="target-btn">Target 5</button>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Simulated Quiz / Form Navigation -->
+    <section class="box">
+      <div class="box-head">
+        <h2>3. Quiz / CBT Form Test</h2>
+        <span class="tag">Question <span id="q-num">1</span> of 5</span>
+      </div>
+      <div class="quiz">
+        <h3 id="q-text">Loading question...</h3>
+        <div id="q-options" class="opt-list"></div>
+        <div class="nav-bar">
+          <button id="btn-prev" class="btn">« Previous (Left)</button>
+          <span id="q-status">Select option A, B, C, D, or E</span>
+          <button id="btn-next" class="btn">Next (Right) »</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Scroll Area -->
+    <section class="box">
+      <div class="box-head">
+        <h2>4. Scroll Test Area</h2>
+        <span id="scroll-pct" class="tag">Scroll: 0%</span>
+      </div>
+      <div class="text-body">
+        <p>Use your hand gesture (move hand up/down) or mouse gesture (right-click drag up/down) to smoothly scroll this text block.</p>
+        <p>freehand4real dispatches native DOM KeyboardEvent ('KeyA', 'KeyB', 'KeyC', 'KeyD', 'KeyE', 'ArrowLeft', 'ArrowRight') and MouseEvents.</p>
+        <div class="checkpoint">--- Scroll Checkpoint 1 ---</div>
+        <p>Form auto-select automatically checks multiple-choice radio buttons or labeled option elements upon gesture trigger.</p>
+        <div class="checkpoint">--- Scroll Checkpoint 2 ---</div>
+        <p>You have reached the bottom. Use the hand-up gesture to scroll back to the top!</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="lib/vision_bundle.js"></script>
+  <script src="test.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "freehand4real",
+  "version": "1.1.0",
+  "description": "Clean white browser gesture controller with AI Hand Tracking (MediaPipe Tasks Vision), Air Cursor, and Keypad (A, B, C, D, E, Arrow, Scroll).",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "freehand4real"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "widget.html",
+        "widget.js",
+        "widget.css",
+        "sidepanel.html",
+        "sidepanel.js",
+        "sidepanel.css",
+        "permission.html",
+        "permission.js",
+        "test.html",
+        "test.js",
+        "test.css",
+        "lib/vision_bundle.js",
+        "lib/hand_landmarker.task",
+        "lib/wasm/*",
+        "icons/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

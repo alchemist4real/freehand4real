@@ -1,0 +1,135 @@
+/* freehand4real - Clean White, Times New Roman, Symmetrical, Anti-Overflow */
+
+/* Global Anti-Overflow Container */
+#gesture-iframe-container {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  width: 270px !important;
+  height: 385px !important;
+  z-index: 2147483647 !important;
+  border: 1px solid #111827 !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.14) !important;
+  transition: width 0.25s ease, height 0.25s ease !important;
+}
+
+#gesture-iframe-container.minimized {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+#gesture-iframe-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  display: block !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  background: #ffffff !important;
+}
+
+/* Virtual Gesture Cursor (Air Cursor) */
+#gesture-virtual-cursor {
+  position: fixed !important;
+  width: 22px !important;
+  height: 22px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+  pointer-events: none !important;
+  z-index: 2147483645 !important;
+  transform: translate(-50%, -50%) !important;
+  transition: width 0.12s ease, height 0.12s ease, background-color 0.12s ease !important;
+  display: none !important;
+  box-sizing: border-box !important;
+}
+
+#gesture-virtual-cursor.active {
+  display: block !important;
+}
+
+#gesture-virtual-cursor.pinching {
+  width: 12px !important;
+  height: 12px !important;
+  background: #000000 !important;
+  border-color: #000000 !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Click Ripple Effect */
+.gesture-click-ripple {
+  position: fixed !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  border: 2px solid #111827 !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) !important;
+  pointer-events: none !important;
+  z-index: 2147483644 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  animation: freehandRipple 0.35s ease-out forwards !important;
+  box-sizing: border-box !important;
+}
+
+@keyframes freehandRipple {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(4);
+  }
+}
+
+/* Mouse Gesture Trail Canvas */
+#gesture-trail-canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 2147483643 !important;
+  pointer-events: none !important;
+}
+
+/* Clean White Minimal HUD Toast (Times New Roman, Symmetrical, Anti-Overflow) */
+#gesture-hud-toast {
+  position: fixed !important;
+  bottom: 35px !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(15px) !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1.5px solid #111827 !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15) !important;
+  padding: 8px 22px !important;
+  border-radius: 25px !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+  z-index: 2147483646 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+#gesture-hud-toast.show {
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(0) !important;
+}

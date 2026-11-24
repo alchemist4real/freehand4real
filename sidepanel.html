@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>freehand4real Side Panel</title>
+  <style>
+    * {
+      box-sizing: border-box !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-family: 'Times New Roman', Times, serif !important;
+    }
+    body {
+      background: #ffffff !important;
+      color: #111827 !important;
+      padding: 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      height: 100vh !important;
+      overflow-y: auto !important;
+    }
+    .header {
+      text-align: center !important;
+      border-bottom: 1px solid #111827 !important;
+      padding-bottom: 8px !important;
+    }
+    h1 {
+      font-size: 18px !important;
+      font-weight: 700 !important;
+    }
+    .sub {
+      font-size: 11px !important;
+      color: #4b5563 !important;
+    }
+    .video-box {
+      position: relative !important;
+      width: 100% !important;
+      height: 200px !important;
+      background: #f9fafb !important;
+      border: 1px solid #111827 !important;
+      border-radius: 6px !important;
+      overflow: hidden !important;
+    }
+    #side-webcam, #side-canvas {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      transform: scaleX(-1) !important;
+    }
+    #side-canvas {
+      pointer-events: none !important;
+      z-index: 2 !important;
+    }
+    .btn {
+      background: #111827 !important;
+      color: #ffffff !important;
+      border: 1px solid #111827 !important;
+      padding: 8px 14px !important;
+      border-radius: 4px !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      width: 100% !important;
+    }
+    .status-badge {
+      text-align: center !important;
+      padding: 6px !important;
+      background: #f3f4f6 !important;
+      border: 1px solid #e5e7eb !important;
+      border-radius: 4px !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+    }
+    .status-badge.active {
+      background: #111827 !important;
+      color: #ffffff !important;
+    }
+    .grid-5 {
+      display: grid !important;
+      grid-template-columns: repeat(5, 1fr) !important;
+      gap: 4px !important;
+    }
+    .grid-4 {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 4px !important;
+    }
+    .key-btn {
+      background: #ffffff !important;
+      border: 1px solid #111827 !important;
+      color: #111827 !important;
+      padding: 6px 2px !important;
+      border-radius: 4px !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      text-align: center !important;
+    }
+    .key-btn:hover {
+      background: #f3f4f6 !important;
+    }
+    .key-btn.flash {
+      background: #111827 !important;
+      color: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>freehand4real</h1>
+    <p class="sub">Side Panel Controller • Controls Active Tab</p>
+  </div>
+
+  <button id="btn-side-cam" class="btn">▶ Start Camera</button>
+
+  <div class="video-box">
+    <video id="side-webcam" playsinline autoplay muted></video>
+    <canvas id="side-canvas"></canvas>
+  </div>
+
+  <div id="side-status" class="status-badge">Standby</div>
+
+  <!-- Virtual Buttons -->
+  <div class="grid-5">
+    <button class="key-btn" data-act="PRESS_A">A</button>
+    <button class="key-btn" data-act="PRESS_B">B</button>
+    <button class="key-btn" data-act="PRESS_C">C</button>
+    <button class="key-btn" data-act="PRESS_D">D</button>
+    <button class="key-btn" data-act="PRESS_E">E</button>
+  </div>
+
+  <div class="grid-4">
+    <button class="key-btn" data-act="ARROW_LEFT">◀ Left</button>
+    <button class="key-btn" data-act="SCROLL_UP">▲ Up</button>
+    <button class="key-btn" data-act="SCROLL_DOWN">▼ Down</button>
+    <button class="key-btn" data-act="ARROW_RIGHT">Right ▶</button>
+  </div>
+
+  <script src="lib/vision_bundle.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
